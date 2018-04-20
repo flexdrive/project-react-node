@@ -30,7 +30,7 @@ A car subscription requires:
 2.  Use any libraries you like
 3.  Persistance does not need to be complicated (in-memory is fine)
 4.  Take 1 - 2 hours on it
-5.  Document your assumptions, describe what else would need to be done to make it "production-ready"
+5.  Document your assumptions, describe what else would need to be done to make it "production-ready". Describe the approach you would take to test frontend and backend code.
 
 ### What We Are Looking For
 
