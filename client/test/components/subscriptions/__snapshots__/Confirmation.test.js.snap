@@ -1,0 +1,182 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Subscription Confirmation Component test suite Component Testing: Render should render component 1`] = `
+<div
+  id="subscription-container"
+>
+  <h1>
+    Subscription Summary
+  </h1>
+  <div
+    id={true}
+  >
+    Thank you for choosing FlexDrive. You're now in the drivers seat.
+  </div>
+  <div
+    id="subscription-summary"
+  >
+    <div
+      id="customer-info"
+    >
+      <h2>
+        Customer Information
+      </h2>
+      <ul
+        className="summary"
+      >
+        <li>
+          <div
+            className="key"
+          >
+            Name
+          </div>
+          <div
+            className="key-value"
+          >
+            John Smith
+          </div>
+        </li>
+        <li>
+          <div
+            className="key"
+          >
+            Email Address
+          </div>
+          <div
+            className="key-value"
+          >
+            jsmith@gmail.com
+          </div>
+        </li>
+        <li>
+          <div
+            className="key"
+          >
+            Birthday
+          </div>
+          <div
+            className="key-value"
+          >
+            10/01/1990
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div
+      id="subscription-length-info"
+    >
+      <h2>
+        Subscription Information
+      </h2>
+      <ul
+        className="summary"
+      >
+        <li>
+          <div
+            className="key"
+          >
+            Subscription Length
+          </div>
+          <div
+            className="key-value"
+          >
+            4 weeks
+          </div>
+        </li>
+        <li>
+          <div
+            className="key"
+          >
+            Price
+          </div>
+          <div
+            className="key-value price"
+          >
+            $750
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div
+      id="vehicle-info"
+    >
+      <h2>
+        Vehicle Information
+      </h2>
+      <ul
+        className="summary"
+      >
+        <li>
+          <div
+            className="key"
+          >
+            Make
+          </div>
+          <div
+            className="key-value"
+          >
+            Audi
+          </div>
+        </li>
+        <li>
+          <div
+            className="key"
+          >
+            Model
+          </div>
+          <div
+            className="key-value"
+          >
+            A4
+          </div>
+        </li>
+        <li>
+          <div
+            className="key"
+          >
+            Model Year
+          </div>
+          <div
+            className="key-value"
+          >
+            2017
+          </div>
+        </li>
+        <li>
+          <div
+            className="key"
+          >
+            Milage
+          </div>
+          <div
+            className="key-value"
+          >
+            18200
+          </div>
+        </li>
+        <li>
+          <div
+            className="key"
+          >
+            VIN ID
+          </div>
+          <div
+            className="key-value"
+          >
+            1ABCD23HIJK112233
+          </div>
+        </li>
+      </ul>
+    </div>
+    <img
+      alt="Audi A4"
+      className="vehicle-image"
+      src={
+        Object {
+          "process": [Function],
+        }
+      }
+    />
+  </div>
+</div>
+`;
