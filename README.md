@@ -71,6 +71,7 @@ The benefit is that almost all of the logic can be shared across both React, Rea
 
 ### Still lots to do… 
 - Service error handling - needs some attention
+- Better Form validation _(HTML 5 is fast to set up, but not very dependable)_
 - Need a better solution for HTTP Client library than fetch _(started down the super agent road, but ran short on time, sorry)_
 - Environment variables are not implemented _(for identifying endpoint hosts, configs, account creds, etc. for development vs. test vs. production)_
 - Could benefit from some consistent code quality tooling implementation _(flow or typescript, lint)_

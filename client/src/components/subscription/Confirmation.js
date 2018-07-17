@@ -1,6 +1,8 @@
 import React from 'react';
 import formatters from '../../utilities/fomatters';
 import vehicleEvergreen from '../../assets/images/vehicle_evergreen.png';
+import constants from "../../constants";
+import navigation from "../../utilities/navigation";
 
 
 const Confirmation = ({subscription}) => (
@@ -66,6 +68,7 @@ const Confirmation = ({subscription}) => (
                 </ul>
             </div>
             <img className="vehicle-image" src={vehicleEvergreen} alt={`${subscription.vehicle.make} ${subscription.vehicle.model}`} />
+            <button className="button-success" onClick={() => navigation.go(constants.ROUTES.HOME)}>Home</button>
         </div>
     </div>
 );

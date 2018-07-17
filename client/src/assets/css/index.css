@@ -28,12 +28,16 @@ input[type="text"], input[type="date"], input[type="email"]{
 :focus{outline: none;}
 
 
-#main{
+#main, #main-subscription{
   display: flex;
   flex-direction: column;
   width: 80%;
   margin: 60px auto;
   text-align: center;
+}
+
+#main-subscription{
+  margin: 20px auto;
 }
 
 #main button{

@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import subscriptionPropTypes from '../store/subscriptionPropTypes';
 import navigation from '../utilities/navigation';
-import localStorage from '../utilities/localStorage';
 import constants from '../constants';
 import subscriptionActions from '../store/subscriptions/actions'
 import connectedStoreContainer from '../store/connectedStoreContainer';
@@ -16,33 +15,40 @@ class LandingView extends Component{
     }
 
     componentDidMount() {
-        this.props.actions.dispatch(() => subscriptionActions.getSubscriptionLengthList());
-        this.props.actions.dispatch(() => subscriptionActions.getVehicleList());
+        if(this.props.subscriptionStore.subscription.customer === null){
+            this.props.actions.dispatch(() => subscriptionActions.getSubscriptionLengthList());
+            this.props.actions.dispatch(() => subscriptionActions.getVehicleList());
+        }
     }
 
     render() {
+        const customer = this.props.subscriptionStore.subscription.customer;
         return (
             <div id="main">
-                <header className="app-header">
-                    <h1 className="app-title">Sign Up for a Subscription!</h1>
-                </header>
-                {!localStorage.get(constants.LOCAL_STORAGE_KEY_SUBSCRIPTION) && this.newSubscriptionMarkup()}
-                {localStorage.get(constants.LOCAL_STORAGE_KEY_SUBSCRIPTION) && this.subscriberMarkup()}
+                {customer === null && this.newSubscriptionMarkup()}
+                {customer !==null && this.subscriberMarkup()}
             </div>
         )
     }
 
     subscriberMarkup(){
-        const subscriberInfo = localStorage.get(constants.LOCAL_STORAGE_KEY_SUBSCRIPTION, true);
         return (
             <React.Fragment>
-                <div>
-                    Welcome back {subscriberInfo.name}! Thank you for the opportunity to meet all your transportation needs
+                <header className="app-header">
+                    <h1 className="app-title">Thank you for the opportunity!</h1>
+                </header>
+                <div id="main-subscription">
+                    Welcome back {this.props.subscriptionStore.subscription.customer.name}!
+                    Thank you for the opportunity to meet all your transportation needs
                 </div>
                 <div>
                     For your convenience, a summary of your current FlexDrive subscription
-                    is available <button className="button-success" onClick={() => navigation.go(constants.ROUTES.SUBSCRIPTION_CONFIRMATION)}>here</button>
+                    is available
+                    <div>
+                        <button className="button-success" onClick={() => navigation.go(constants.ROUTES.SUBSCRIPTION_CONFIRMATION)}>View Your Subscription</button>
+                    </div>
                 </div>
+
             </React.Fragment>
         );
     }
@@ -50,6 +56,9 @@ class LandingView extends Component{
     newSubscriptionMarkup(){
         return (
             <React.Fragment>
+                <header className="app-header">
+                    <h1 className="app-title">Sign Up for a Subscription!</h1>
+                </header>
                 <div>
                     Welcome to FlexDrive. Putting You in the drivers seat. Subscriptions are currently available in select cities.
                 </div>
