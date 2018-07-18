@@ -49,7 +49,7 @@ So.. the intent was to provide the team with a very broad view of how I would ap
 
 To be transparent… I approached to satisfy the criteria, while also demonstrating width and depth of decomposition and implementation _(which translates that, while I exceeded the alotted time, I restructured the solution to meet the expectations of what I would assume to see in terms of application architecture, modeling and scaffolding for production) :)_. The solution is far from production ready, but it does demonstrates a modular and decoupled architecture pattern that would be the basis for a more production ready app, while supporting scaling and reusability.
 
-It may be a swing and a miss in terms of the deliverable... but I'm a "if you're going to do it, it's worth doing right and well" kind of individual - go big or go home, right, lol.
+It may be a swing and a miss in terms of the deliverable time alloted... but I'm a "if you're going to do it, it's worth doing right and well" kind of individual - go big or go home, right, lol.
 
 
 #### Repos
@@ -60,7 +60,7 @@ It may be a swing and a miss in terms of the deliverable... but I'm a "if you're
 This is the project that contians data, models and model mappings, and was intended to host the http client library (ran short on time so it's in the main application). _It is referenced as a dependency in the applicable projects (in package.json), so no need to pull and run independently unless desired_ 
 
 ##### technologies
-React, micro, micro-cors, babel, enzyme, jest, redux, thunk _(included since I had brain freeze on in the initial interview... sorry Daniel)_, 
+React, micro, micro-cors, micro-router, babel, enzyme, jest, redux, thunk _(included since I had brain freeze on in the initial interview... sorry Daniel)_, 
 
 
 ### Noteworthy
@@ -73,9 +73,9 @@ The benefit is that almost all of the logic can be shared across both React, Rea
 - Service error handling - needs some attention
 - Better Form validation _(HTML 5 is fast to set up, but not very dependable)_
 - Need a better solution for HTTP Client library than fetch _(started down the super agent road, but ran short on time, sorry)_
-- Environment variables are not implemented _(for identifying endpoint hosts, configs, account creds, etc. for development vs. test vs. production)_
+- Environment variables are not implemented _(for identifying endpoint hosts, configs, account creds, etc. for development vs. test vs. production during build process)_
 - Could benefit from some consistent code quality tooling implementation _(flow or typescript, lint)_
-- Testing is pretty anemic - focused on width and depth.
+- Testing is pretty anemic - focused on width and depth of features - there are a few examples for reference.
 - The modeling needs a little finesse due to deliverable time frame
 - The service calls could be cleaned up - but the intent is there
 - Formal build scripts need implemented
@@ -84,12 +84,12 @@ The benefit is that almost all of the logic can be shared across both React, Rea
 - I consolidated the service api into a single project; the pattern I have seen with similar services is to group into projects by feature segment/business purpose. 
 
 Each service is still it’s own implementation 
--	this simplifies maintenance as a team grows larger and there are more services - you start to see redundancies.
-- The other benefit is caching strategy; if you have a service group that does not get updated very often, these can be cached for a predetermined period (12/24 hrs?), while other remain on demand (e.g. your pricing service may not update very often, but your available inventory would constantly be updating as subscriptions are requested). 
+-	this simplifies maintenance as a team grows larger and there are more services - you start to see redundancies when they are spread out due to multiple naming convention differences, etc.; start to see services with different names doing the same things, creating tech debt.
+- The other benefit is caching strategy; if you have a service group that does not get updated very often, these can be cached for a predetermined period (12/24 hrs?), while other remain on demand (e.g. your pricing service may not update very often for duration, but your available inventory would constantly be updating as subscriptions are requested). 
 
 ### Micro Caveats
  - **CORS**: micro-core has some pretty slim documentation
- - **Micro-Cors and headers**: I found they were only applied  by setting on  - all services - setting headers uniquely on each service didn’t seem to work - probably requires some additional investigation.
+ - **Micro-Cors and headers**: I found they were only applied  by setting on all services; setting headers uniquely on each service didn’t seem to work - probably requires some additional investigation.
 
 ### Run Instructions
 ```
