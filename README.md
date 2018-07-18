@@ -43,11 +43,11 @@ A car subscription requires:
 
 ===============================
 
-# Code Kata Deliverable: Customer Subscription form
+# Code Kata/ Technical Exercise Deliverable: Customer Subscription form
 
 So.. the intent was to provide the team with a very broad view of how I would approach decomposing this user story and implement a solution. Hopefully it provides some talking points following the team review. 
 
-To be transparent… I approached to satisfy the criteria, while also demonstrating width and depth of decomposition and implementation _(which translates that, while I exceeded the alotted time, I restructured the solution to meet the expectations of what I would assume to see in terms of application architecture, modeling and scaffolding for production) :)_. The solution is far from production ready, but it does demonstrates a modular and decoupled architecture pattern that would be the basis for a more production ready app, while supporting scaling and reusability.
+To be transparent… I approached to satisfy the criteria, while also demonstrating width and depth of decomposition and implementation _(which translates that, while I exceeded the alotted time, I restructured the solution to meet the expectations of what I would assume to see in terms of application architecture, modeling, and scaffolding for production) :)_. The solution is far from production ready, but it does demonstrates a modular and decoupled architecture pattern that would be the basis for a more production ready app, while supporting scaling and reusability.
 
 It may be a swing and a miss in terms of the deliverable time alloted... but I'm a "if you're going to do it, it's worth doing right and well" kind of individual - go big or go home, right, lol.
 
@@ -84,7 +84,7 @@ The benefit is that almost all of the logic can be shared across both React, Rea
 - I consolidated the service api into a single project; the pattern I have seen with similar services is to group into projects by feature segment/business purpose. 
 
 Each service is still it’s own implementation 
--	this simplifies maintenance as a team grows larger and there are more services - you start to see redundancies when they are spread out due to multiple naming convention differences, etc.; start to see services with different names doing the same things, creating tech debt.
+-	this simplifies maintenance as a team grows larger and there are more services - you start to see redundancies when they are spread out due to naming convention deviations, etc.; start to see services with different names doing the same things, creating tech debt.
 - The other benefit is caching strategy; if you have a service group that does not get updated very often, these can be cached for a predetermined period (12/24 hrs?), while other remain on demand (e.g. your pricing service may not update very often for duration, but your available inventory would constantly be updating as subscriptions are requested). 
 
 ### Micro Caveats
